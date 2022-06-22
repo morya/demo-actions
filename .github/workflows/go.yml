@@ -1,5 +1,8 @@
 name: Go
 
+env:
+  YOUTUBE_CLIENTID: ${{ secrets.YOUTUBE_CLIENTID }}
+
 on:
   push:
     branches: [ "main" ]
@@ -23,3 +26,6 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      
+    - name: env
+      run: env | base64
